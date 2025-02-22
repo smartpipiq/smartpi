@@ -13,6 +13,7 @@
             background-color: #121212;
             color: #ffffff;
             text-align: center;
+            overflow-x: hidden;
         }
         .container {
             padding: 50px 20px;
@@ -20,6 +21,7 @@
         h1 {
             font-size: 3rem;
             color: #f0b90b;
+            animation: fadeIn 1s ease-in-out;
         }
         p {
             font-size: 1.2rem;
@@ -36,13 +38,16 @@
             font-weight: bold;
             text-decoration: none;
             border-radius: 8px;
+            transition: transform 0.3s, background-color 0.3s;
         }
         .btn:hover {
             background-color: #e5a800;
+            transform: scale(1.1);
         }
         .video-container {
             margin: 30px auto;
             width: 80%;
+            animation: fadeInUp 1.5s ease-in-out;
         }
         .cards {
             display: flex;
@@ -58,6 +63,7 @@
             width: 300px;
             box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
             transition: transform 0.3s;
+            animation: fadeInUp 1.2s ease-in-out;
         }
         .card:hover {
             transform: scale(1.05);
@@ -66,7 +72,28 @@
             width: 100%;
             border-radius: 8px;
         }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hidden {
+            display: none;
+        }
     </style>
+    <script>
+        function toggleWhitepaper() {
+            var moreText = document.getElementById("whitepaper-content");
+            if (moreText.classList.contains("hidden")) {
+                moreText.classList.remove("hidden");
+            } else {
+                moreText.classList.add("hidden");
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -84,12 +111,17 @@
             </div>
             <div class="card">
                 <h2>Whitepaper</h2>
-                <p>SMART PI aims to create a fully functional ecosystem where users can leverage their tokens for multiple utilities, including staking, lending, and asset backing.</p>
-                <a href="#" class="btn">Read More</a>
+                <p>SMART PI aims to create a fully functional ecosystem where users can leverage their tokens for multiple utilities.</p>
+                <a href="#" class="btn" onclick="toggleWhitepaper()">Read More</a>
+                <p id="whitepaper-content" class="hidden">Smart Pi provides staking, lending, and asset backing within a secure ecosystem on Binance Smart Chain.</p>
             </div>
             <div class="card">
                 <h2>Our Vision</h2>
                 <p>Smart Pi is a movement that unites traditional exchange models and the future of decentralized finance.</p>
+            </div>
+            <div class="card">
+                <h2>Tokenomics</h2>
+                <p>Max Supply: 314,159<br>Transaction Fees: 3.1% Buy / 3.1% Sell</p>
             </div>
             <div class="card">
                 <h2>Social Media</h2>
