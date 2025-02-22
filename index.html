@@ -9,39 +9,38 @@
     <script>
         function toggleContent(id) {
             var content = document.getElementById(id);
-            if (content.style.display === "none" || content.style.display === "") {
-                content.style.display = "block";
-            } else {
-                content.style.display = "none";
-            }
+            content.classList.toggle("hidden");
         }
     </script>
 </head>
 <body>
     <div class="container">
         <h1>Smart Pi</h1>
-        <div class="image-container">
-            <img src="https://gold-known-swallow-180.mypinata.cloud/ipfs/bafkreihhccq2ydmsbsbqakbvfujtxv6qpi5nahpbiwut2at4atstrbq4ei" alt="Smart Pi Banner">
+        <div class="image-gallery">
+            <img src="https://via.placeholder.com/400" alt="Smart Pi 1">
+            <img src="https://via.placeholder.com/400" alt="Smart Pi 2">
+            <img src="https://via.placeholder.com/400" alt="Smart Pi 3">
         </div>
         <div class="cards">
             <div class="card" onclick="toggleContent('whitepaper-content')">
                 <h2>Whitepaper</h2>
-                <p id="whitepaper-content" style="display: none;">Smart Pi aims to create a fully functional ecosystem where users can leverage their tokens for multiple utilities. It provides staking, lending, and asset backing within a secure ecosystem on Binance Smart Chain.</p>
+                <p id="whitepaper-content" class="hidden">Smart Pi provides a comprehensive ecosystem where users can stake, lend, and trade assets securely on Binance Smart Chain.</p>
             </div>
             <div class="card" onclick="toggleContent('tokenomics-content')">
                 <h2>Tokenomics</h2>
-                <p id="tokenomics-content" style="display: none;">Max Supply: 314,159<br>Transaction Fees: 3.1% Buy / 3.1% Sell<br>Liquidity Locked: 80%<br>Team Allocation: 10%<br>Marketing & Development: 10%</p>
+                <p id="tokenomics-content" class="hidden">Max Supply: 314,159 | Buy/Sell Fee: 3.1% | Liquidity Locked: 80% | Team: 10% | Development: 10%</p>
             </div>
             <div class="card" onclick="toggleContent('lore-content')">
                 <h2>Lore</h2>
-                <p id="lore-content" style="display: none;">In the digital realm, Smart Pi was forged as the bridge between technology and decentralized finance, empowering users with new financial tools.</p>
+                <p id="lore-content" class="hidden">In a decentralized world, Smart Pi emerged to bridge technology and finance, empowering users with new tools.</p>
             </div>
-            <div class="card">
-                <h2>Social Media</h2>
-                <p><a href="https://t.me/smartpitoken" class="btn">Telegram</a></p>
-                <p><a href="https://x.com/SmartPii?t=CA0e8AYp0SLYk0uKlS-fxg&s=09" class="btn">Twitter</a></p>
-            </div>
+        </div>
+        <div class="download-links">
+            <h2>Download Website Files</h2>
+            <p><a href="index.html" download>Download HTML</a></p>
+            <p><a href="styles.css" download>Download CSS</a></p>
         </div>
     </div>
 </body>
 </html>
+     
