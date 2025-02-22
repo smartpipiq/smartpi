@@ -1,46 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Pi - The Bridge Between Community and Crypto</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>SmartPi (PiQ)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <script>
-        function toggleContent(id) {
-            var content = document.getElementById(id);
-            content.classList.toggle("hidden");
-        }
-    </script>
 </head>
 <body>
-    <div class="container">
-        <h1>Smart Pi</h1>
-        <div class="image-gallery">
-            <img src="https://via.placeholder.com/400" alt="Smart Pi 1">
-            <img src="https://via.placeholder.com/400" alt="Smart Pi 2">
-            <img src="https://via.placeholder.com/400" alt="Smart Pi 3">
-        </div>
-        <div class="cards">
-            <div class="card" onclick="toggleContent('whitepaper-content')">
-                <h2>Whitepaper</h2>
-                <p id="whitepaper-content" class="hidden">Smart Pi provides a comprehensive ecosystem where users can stake, lend, and trade assets securely on Binance Smart Chain.</p>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-logo">
+                <img src="https://gold-known-swallow-180.mypinata.cloud/ipfs/bafkreihhccq2ydmsbsbqakbvfujtxv6qpi5nahpbiwut2at4atstrbq4ei" alt="SmartPi">
             </div>
-            <div class="card" onclick="toggleContent('tokenomics-content')">
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#tokenomics">Tokenomics</a>
+                <a href="#whitepaper">Whitepaper</a>
+                <a href="#lore">Lore</a>
+            </div>
+            <div class="social-links">
+                <a href="https://t.me/smartpitoken" target="_blank"><i class="fab fa-telegram"></i></a>
+                <a href="https://x.com/SmartPii?t=CA0e8AYp0SLYk0uKlS-fxg&s=09" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero" data-aos="fade-down" data-aos-duration="1000">
+        <video autoplay loop muted playsinline class="hero-video">
+            <source src="https://gold-known-swallow-180.mypinata.cloud/ipfs/bafybeidzu2mcok5vvgyeer6atg7xlbbeqxeuzbmacazsxupgcdts37636y" type="video/mp4">
+        </video>
+        <div class="hero-content container">
+            <h1>SmartPi <span>(PiQ)</span></h1>
+            <p>The Bridge Between Community and Crypto Future</p>
+            <div class="hero-buttons">
+                <button class="btn primary">Buy Now (Coming Soon)</button>
+                <button class="btn secondary">Chart (Coming Soon)</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="section" data-aos="fade-up" 
+                 data-aos-duration="1000" data-aos-offset="200">
+            <div class="container">
+                <h2>About SmartPi</h2>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <img src="https://gold-known-swallow-180.mypinata.cloud/ipfs/bafkreihhccq2ydmsbsbqakbvfujtxv6qpi5nahpbiwut2at4atstrbq4ei" alt="SmartPi">
+                        <h3>Community Driven</h3>
+                        <p>Built by the community, for the community</p>
+                    </div>
+                    <div class="about-card">
+                        <img src="https://gold-known-swallow-180.mypinata.cloud/ipfs/bafkreiejknfba2vtu6c6fwkp5nzzfi2x3m45n5zcuzqtai54v3l4xr5fpm" alt="SmartPi">
+                        <h3>Secure Platform</h3>
+                        <p>Built on Binance Smart Chain</p>
+                    </div>
+                    <div class="about-card">
+                        <img src="https://gold-known-swallow-180.mypinata.cloud/ipfs/bafkreig32uqpgfmnwjcidgle74pzn6hayqmczz77m25u7r5oh7wbpkgvde" alt="SmartPi">
+                        <h3>Innovative Technology</h3>
+                        <p>Advanced features and utilities</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tokenomics" class="section dark" data-aos="fade-up" 
+                 data-aos-duration="1000" data-aos-offset="200">
+            <div class="container">
                 <h2>Tokenomics</h2>
-                <p id="tokenomics-content" class="hidden">Max Supply: 314,159 | Buy/Sell Fee: 3.1% | Liquidity Locked: 80% | Team: 10% | Development: 10%</p>
+                <div class="tokenomics-grid">
+                    <div class="tokenomics-card">
+                        <h3>Max Supply</h3>
+                        <p>314,159 PiQ</p>
+                    </div>
+                    <div class="tokenomics-card">
+                        <h3>Transaction Fee</h3>
+                        <p>3.1% Buy/Sell</p>
+                    </div>
+                    <div class="tokenomics-card">
+                        <h3>Liquidity</h3>
+                        <p>Locked</p>
+                    </div>
+                </div>
             </div>
-            <div class="card" onclick="toggleContent('lore-content')">
+        </section>
+
+        <section id="whitepaper" class="section" data-aos="fade-up" 
+                 data-aos-duration="1000" data-aos-offset="200">
+            <div class="container">
+                <h2>Whitepaper</h2>
+                <div class="whitepaper-content">
+                    <h3>1. Introduction</h3>
+                    <p>In an ever-evolving digital economy, SMART PI emerges as a bridge between the widely used exchange currency of the past eight years and the innovative crypto space. The project aims to unite the Pi Network community by providing real-world utility and a structured ecosystem. Through SmartPi, we offer a decentralized, secure, and rewarding experience for all participants.</p>
+                    
+                    <h3>2. Vision and Mission</h3>
+                    <p>Our mission is to create a fully functional ecosystem where users can leverage their tokens for multiple utilities, including staking, lending, and asset backing. We envision SmartPi as a community-driven initiative that enhances accessibility and financial inclusion through blockchain technology.</p>
+                    
+                    <h3>3. Blockchain Network and Technology</h3>
+                    <p>SmartPi is built on Binance Smart Chain (BSC), ensuring fast transactions with low fees. The choice of BSC allows seamless integration with decentralized applications (dApps) and improves SmartPi's scalability.</p>
+                    
+                    <h3>4. Tokenomics</h3>
+                    <ul>
+                        <li>Token Name: SMART PI</li>
+                        <li>Symbol: $PiQ</li>
+                        <li>Max Supply: 314,159</li>
+                        <li>Transaction Fees:
+                            <ul>
+                                <li>BUY: 3.1%</li>
+                                <li>SELL: 3.1%</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Fee Distribution:</h4>
+                    <ul>
+                        <li>Staking: BUY 0.7% / SELL 0.7%</li>
+                        <li>Asset Backing: BUY 0.1% / SELL 0.1%</li>
+                        <li>Growth: BUY 1% / SELL 1%</li>
+                        <li>Liquidity Injection: BUY 0.1% / SELL 0.1%</li>
+                        <li>Burn: BUY 1% / SELL 1%</li>
+                        <li>Reflections: BUY 0.1% / SELL 0.1%</li>
+                        <li>Protocol Fee: BUY 0.1% / SELL 0.1%</li>
+                    </ul>
+                    
+                    <h3>5. Key Utilities</h3>
+                    <ul>
+                        <li>Staking: Users can stake SmartPi tokens to earn rewards and increase their holdings.</li>
+                        <li>Lending: A decentralized lending platform will allow users to borrow and lend SmartPi tokens.</li>
+                        <li>AutoBurn Mechanism: A portion of every transaction will be burned, ensuring a deflationary supply.</li>
+                        <li>Asset Backing: SmartPi tokens will be backed by a pool of assets, providing stability and long-term value.</li>
+                        <li>Community Governance: SmartPi holders will have a say in the future development and decisions of the project.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="lore" class="section dark" data-aos="fade-up" 
+                 data-aos-duration="1000" data-aos-offset="200">
+            <div class="container">
                 <h2>Lore</h2>
-                <p id="lore-content" class="hidden">In a decentralized world, Smart Pi emerged to bridge technology and finance, empowering users with new tools.</p>
+                <div class="lore-content">
+                    <h3>Smart Pi: The Bridge Between Community and the Crypto Future</h3>
+                    
+                    <h4>Origin of Smart Pi</h4>
+                    <p>In a constantly evolving world where blockchain technology is redefining finance and digital communities, an ambitious initiative was born – Smart Pi. This project is not just a token; it is a symbol of unity, progress, and the power of a global community. Over the past three years, we have built a space where Pi Network miners and crypto enthusiasts have supported each other, shared knowledge, and formed an unbreakable bond. To take this collaboration to the next level, we decided to create Smart Pi, an innovative BSC meme token launched through Smart Defi Launchpad.</p>
+                    
+                    <h4>Mission of Smart Pi</h4>
+                    <p>We aim to offer everyone, regardless of their crypto experience, the opportunity to be part of a unique project where every user matters. Smart Pi is more than just a token – it is an ecosystem of opportunities for those who believe in decentralization, innovation, and a future of sustainable rewards.</p>
+                    
+                    <h4>Features and Utility</h4>
+                    <p>To ensure real and sustainable value for our community, Smart Pi offers the following benefits:</p>
+                    <ul>
+                        <li>Staking – Allows users to multiply their holdings by participating in staking pools.</li>
+                        <li>Reward pools for holders – Smart Pi holders will be periodically rewarded for their loyalty.</li>
+                        <li>AutoBurn mechanism – A smart system that burns a portion of tokens to maintain a controlled supply and increase long-term value.</li>
+                        <li>Integration with the Pi Network community – Uniting a global community of over 100 million users, offering new possibilities for real token adoption.</li>
+                    </ul>
+                    
+                    <h4>Our Vision</h4>
+                    <p>Our dream is to see Smart Pi become a widely used currency, offering multiple utilities and acting as a catalyst for crypto innovation. With the support of over 2,600 holders and a dedicated community, we will build a strong network where every member plays a role in our collective success.</p>
+                    
+                    <p class="conclusion">Whether you are an experienced investor or taking your first steps in crypto, Smart Pi is here for you. Together, we can achieve the impossible!</p>
+                </div>
             </div>
+        </section>
+
+        <section class="social-section">
+            <div class="container">
+                <div class="footer-social-buttons">
+                    <a href="https://t.me/smartpitoken" target="_blank" class="social-button telegram">
+                        <i class="fab fa-telegram"></i>
+                        <span>Join Telegram</span>
+                        <div class="social-button-overlay"></div>
+                    </a>
+                    <a href="https://x.com/SmartPii?t=CA0e8AYp0SLYk0uKlS-fxg&s=09" target="_blank" class="social-button twitter">
+                        <i class="fab fa-twitter"></i>
+                        <span>Follow on Twitter</span>
+                        <div class="social-button-overlay"></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="copyright">© 2024 SmartPi. All rights reserved.</p>
         </div>
-        <div class="download-links">
-            <h2>Download Website Files</h2>
-            <p><a href="index.html" download>Download HTML</a></p>
-            <p><a href="styles.css" download>Download CSS</a></p>
-        </div>
-    </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            offset: 100,
+            once: false,
+            mirror: true
+        });
+    </script>
 </body>
 </html>
      
