@@ -1,11 +1,17 @@
 :root {
-    --primary: #3498db;
-    --secondary: #2ecc71;
-    --background: #0a192f;
-    --text: #ffffff;
-    --card: rgba(255, 255, 255, 0.05);
+    --primary: #FFD700;  /* Auriu strălucitor */
+    --secondary: #4169E1; /* Albastru regal */
+    --background: #0B1426; /* Albastru foarte închis, ca noaptea în oraș */
+    --text: #E5E5E5;
+    --gold-accent: #DAA520; /* Auriu mai închis pentru accente */
+    --blue-glow: #1E90FF; /* Albastru electric pentru efecte de lumină */
+    --card: rgba(255, 215, 0, 0.05); /* Auriu transparent pentru carduri */
     --z-index-base: 1;
     --section-overlap: -100px;
+    --gradient-primary: linear-gradient(45deg, #FFD700, #4169E1);
+    --gradient-gold: linear-gradient(45deg, #FFD700, #DAA520);
+    --gradient-blue: linear-gradient(45deg, #1E90FF, #4169E1);
+    --overlay: rgba(11, 20, 38, 0.85);
 }
 
 * {
@@ -36,7 +42,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(10, 25, 47, 0.95); /* Overlay peste background */
+    background: var(--overlay);
     z-index: -1;
 }
 
@@ -55,10 +61,12 @@ body::before {
 .navbar {
     position: relative;
     width: 100%;
-    background: rgba(10, 25, 47, 0.9);
-    backdrop-filter: blur(10px);
+    background: rgba(11, 20, 38, 0.9);
+    backdrop-filter: blur(15px);
     z-index: 100;
     padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+    box-shadow: 0 4px 30px rgba(30, 144, 255, 0.1);
 }
 
 .navbar .container {
@@ -80,6 +88,12 @@ body::before {
     color: var(--text);
     text-decoration: none;
     font-weight: 500;
+    text-shadow: 0 0 10px rgba(30, 144, 255, 0.2);
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
 }
 
 .social-links {
@@ -94,11 +108,12 @@ body::before {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
-    position: relative;
     display: flex;
+    justify-content: center;
     align-items: center;
-    overflow: hidden;
+    min-height: 100vh;
+    text-align: center;
+    padding: 20px;
 }
 
 .hero-video {
@@ -113,7 +128,9 @@ body::before {
 }
 
 .hero-content {
-    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .hero h1 {
@@ -144,58 +161,196 @@ body::before {
 }
 
 .btn.primary {
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    background: var(--gradient-gold);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+    border: 1px solid rgba(255, 215, 0, 0.3);
     color: white;
 }
 
 .btn.secondary {
-    background: transparent;
-    border: 2px solid var(--primary);
-    color: white;
+    background: var(--gradient-blue);
+    box-shadow: 0 0 20px rgba(30, 144, 255, 0.2);
+    border: 1px solid rgba(30, 144, 255, 0.3);
+    color: var(--primary);
 }
 
 .btn:hover {
     transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
 }
 
 /* Sections */
 .section {
+    padding: 80px 20px;
     position: relative;
-    z-index: var(--z-index-base);
-    margin-bottom: var(--section-overlap);
-    padding-bottom: calc(100px - var(--section-overlap));
-    transform-origin: center top;
-    transition: transform 0.3s ease;
-}
-
-.section:nth-child(even) {
-    z-index: calc(var(--z-index-base) + 1);
-}
-
-.section:nth-child(odd) {
-    z-index: calc(var(--z-index-base) + 2);
-}
-
-.section.dark {
-    background: linear-gradient(to bottom, 
-        rgba(0, 0, 0, 0.3) 0%,
-        rgba(0, 0, 0, 0.4) 100%);
-    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.section:hover {
-    transform: translateY(-5px);
-}
-
-.section {
-    will-change: transform;
-    backface-visibility: hidden;
+    overflow: hidden;
 }
 
 .section h2 {
     text-align: center;
+    margin-bottom: 40px;
+    color: var(--primary);
     font-size: 2.5rem;
-    margin-bottom: 50px;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+/* Card base styles - asigurăm vizibilitatea completă a textului */
+.about-card, .tokenomics-card, .feature-card {
+    background: rgba(11, 20, 38, 0.95);
+    border: 1px solid rgba(30, 144, 255, 0.2);
+    backdrop-filter: blur(15px);
+    position: relative;
+    overflow: visible;
+    transition: all 0.3s ease;
+    z-index: 1;
+    padding: 30px;
+    border-radius: 10px;
+    height: auto;
+    min-height: fit-content;
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+}
+
+/* Text styling în carduri */
+.about-card h3, .tokenomics-card h3, .feature-card h3 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    white-space: normal;
+}
+
+.about-card p, .tokenomics-card p, .feature-card p {
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 1rem;
+    margin: 0;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    word-wrap: break-word;
+    flex-grow: 1;
+}
+
+/* Grid layout adjustment */
+.about-grid, .tokenomics-grid, .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Efecte de glow pentru carduri */
+.about-card::before, .tokenomics-card::before, .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 150%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+        circle at center,
+        rgba(30, 144, 255, 0.15) 0%,
+        rgba(30, 144, 255, 0.1) 20%,
+        rgba(30, 144, 255, 0.05) 40%,
+        transparent 60%
+    );
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Hover effects */
+.about-card:hover, .tokenomics-card:hover, .feature-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(30, 144, 255, 0.4);
+    box-shadow: 
+        0 0 30px rgba(30, 144, 255, 0.2),
+        0 0 60px rgba(30, 144, 255, 0.1),
+        0 0 90px rgba(30, 144, 255, 0.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-grid, .tokenomics-grid, .features-grid {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .about-card, .tokenomics-card, .feature-card {
+        margin: 10px 0;
+        padding: 20px;
+        height: auto;
+    }
+}
+
+/* Animation pentru carduri */
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 
+            0 0 30px rgba(30, 144, 255, 0.2),
+            0 0 60px rgba(30, 144, 255, 0.1);
+    }
+    50% {
+        box-shadow: 
+            0 0 40px rgba(30, 144, 255, 0.3),
+            0 0 80px rgba(30, 144, 255, 0.15);
+    }
+    100% {
+        box-shadow: 
+            0 0 30px rgba(30, 144, 255, 0.2),
+            0 0 60px rgba(30, 144, 255, 0.1);
+    }
+}
+
+.about-card.aos-animate, 
+.tokenomics-card.aos-animate, 
+.feature-card.aos-animate {
+    animation: pulseGlow 3s infinite;
+}
+
+/* Asigurăm-ne că nu există imagini de fundal */
+.about-card,
+.about-card:nth-child(1),
+.about-card:nth-child(2),
+.about-card:nth-child(3),
+.tokenomics-card,
+.feature-card {
+    background: rgba(11, 20, 38, 0.95);
+    background-image: none !important;
+}
+
+/* Dark section background */
+.section.dark {
+    background: rgba(11, 20, 38, 0.7);
+}
+
+/* Animation keyframes */
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 
+            0 0 30px rgba(30, 144, 255, 0.2),
+            0 0 60px rgba(30, 144, 255, 0.1);
+    }
+    50% {
+        box-shadow: 
+            0 0 40px rgba(30, 144, 255, 0.3),
+            0 0 80px rgba(30, 144, 255, 0.15);
+    }
+    100% {
+        box-shadow: 
+            0 0 30px rgba(30, 144, 255, 0.2),
+            0 0 60px rgba(30, 144, 255, 0.1);
+    }
+}
+
+/* Ensure cards animate on scroll */
+.about-card.aos-animate, 
+.tokenomics-card.aos-animate, 
+.feature-card.aos-animate {
+    animation: pulseGlow 3s infinite;
 }
 
 /* About Grid */
@@ -205,16 +360,91 @@ body::before {
     gap: 30px;
 }
 
-.about-card {
-    background: var(--card);
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
+/* Remove all images */
+.nav-logo img, .about-card img, .lore-content img, .footer-content img {
+    display: none;
+}
+
+/* Neon glow effect sub carduri */
+.about-card::after, .tokenomics-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: 
+        linear-gradient(
+            transparent 0%,
+            rgba(30, 144, 255, 0.05) 45%,
+            rgba(30, 144, 255, 0.1) 50%,
+            rgba(30, 144, 255, 0.05) 55%,
+            transparent 100%
+        ),
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(30, 144, 255, 0.05) 45%,
+            rgba(30, 144, 255, 0.1) 50%,
+            rgba(30, 144, 255, 0.05) 55%,
+            transparent 100%
+        );
+    background-size: 400% 400%;
+    animation: currentFlow 15s linear infinite;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Animație pentru liniile de curent */
+@keyframes currentFlow {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+/* Îmbunătățiri pentru efectul de glow */
+.about-card:hover::before, .tokenomics-card:hover::before {
+    animation: expandGlow 2s infinite;
+}
+
+@keyframes expandGlow {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+    }
+}
+
+/* Efect de scanline subtil */
+.about-card::before, .tokenomics-card::before {
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(30, 144, 255, 0.02) 3px,
+        rgba(30, 144, 255, 0.02) 3px
+    );
 }
 
 .about-card img {
     width: 100px;
     margin-bottom: 20px;
+}
+
+.about-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.15);
 }
 
 /* Tokenomics Grid */
@@ -224,68 +454,122 @@ body::before {
     gap: 30px;
 }
 
-.tokenomics-card {
-    background: var(--card);
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
+.tokenomics-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.15);
 }
 
-/* Whitepaper & Lore Sections */
+/* Whitepaper și Lore styling îmbunătățit */
 .whitepaper-content, .lore-content {
-    background: var(--card);
+    background: rgba(11, 20, 38, 0.95);
+    border: 1px solid rgba(30, 144, 255, 0.2);
+    backdrop-filter: blur(15px);
     padding: 40px;
     border-radius: 10px;
-    text-align: left;
+    color: var(--text);
+    line-height: 1.8;
+    box-shadow: 0 0 30px rgba(30, 144, 255, 0.1);
 }
 
 .whitepaper-content h3, .lore-content h3 {
     color: var(--primary);
-    margin-bottom: 20px;
-    font-size: 1.8rem;
+    font-size: 2rem;
+    margin: 30px 0 20px;
+    border-bottom: 1px solid rgba(30, 144, 255, 0.2);
+    padding-bottom: 10px;
 }
 
 .whitepaper-content h4, .lore-content h4 {
     color: var(--secondary);
-    margin: 30px 0 15px;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    margin: 25px 0 15px;
 }
 
 .whitepaper-content p, .lore-content p {
     margin-bottom: 20px;
-    line-height: 1.8;
+    font-size: 1.1rem;
 }
 
 .whitepaper-content ul, .lore-content ul {
-    margin: 20px 0;
-    padding-left: 20px;
+    margin: 0 0 20px 20px;
+    list-style-type: none;
 }
 
 .whitepaper-content ul li, .lore-content ul li {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 25px;
 }
 
-.whitepaper-content ul ul {
-    margin: 10px 0;
-}
-
-.conclusion {
-    margin-top: 40px;
-    font-style: italic;
+.whitepaper-content ul li::before, .lore-content ul li::before {
+    content: '•';
     color: var(--primary);
-    font-weight: 500;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
-/* Remove all images */
-.nav-logo img, .about-card img, .lore-content img, .footer-content img {
-    display: none;
+.tokenomics-details {
+    background: rgba(30, 144, 255, 0.05);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+/* Tools Section styling */
+.tools-section {
+    margin-top: 60px;
+    padding: 40px;
+    background: rgba(11, 20, 38, 0.95);
+    border-radius: 10px;
+    border: 1px solid rgba(30, 144, 255, 0.2);
+}
+
+.tools-section h3 {
+    text-align: center;
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.tool-card {
+    background: rgba(30, 144, 255, 0.05);
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid rgba(30, 144, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(30, 144, 255, 0.2);
+}
+
+.tool-card h4 {
+    color: var(--primary);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.tool-card p {
+    color: var(--text);
+    line-height: 1.6;
 }
 
 /* Footer */
 footer {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(11, 20, 38, 0.9);
     padding: 20px 0;
     margin-top: 0;
+    border-top: 1px solid rgba(255, 215, 0, 0.1);
+    box-shadow: 0 -4px 30px rgba(30, 144, 255, 0.1);
 }
 
 .footer-content {
@@ -304,7 +588,7 @@ footer {
     position: relative;
     width: 100%;
     padding: 40px 0;
-    background: rgba(10, 25, 47, 0.9);
+    background: rgba(11, 20, 38, 0.9);
     margin-top: 40px;
 }
 
@@ -352,18 +636,18 @@ footer {
 }
 
 .social-button.telegram {
-    background: #0088cc;
-    box-shadow: 0 4px 15px rgba(0, 136, 204, 0.4);
+    background: var(--gradient-blue);
+    box-shadow: 0 0 20px rgba(30, 144, 255, 0.3);
 }
 
 .social-button.twitter {
-    background: #1DA1F2;
-    box-shadow: 0 4px 15px rgba(29, 161, 242, 0.4);
+    background: var(--gradient-gold);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
 }
 
 .social-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
 }
 
 .social-button:hover .social-button-overlay {
@@ -377,13 +661,13 @@ footer {
 /* Animație pulsare */
 @keyframes pulse {
     0% {
-        box-shadow: 0 4px 15px rgba(255,255,255,0.2);
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
     }
     50% {
-        box-shadow: 0 4px 25px rgba(255,255,255,0.4);
+        box-shadow: 0 0 30px rgba(30, 144, 255, 0.3);
     }
     100% {
-        box-shadow: 0 4px 15px rgba(255,255,255,0.2);
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
     }
 }
 
@@ -453,4 +737,190 @@ footer {
 /* Stiluri pentru smooth scroll */
 html {
     scroll-behavior: smooth;
+}
+
+/* Welcome Screen Styles */
+#welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    background: var(--background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#welcome-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    filter: brightness(0.7); /* Face video-ul puțin mai întunecat pentru a evidenția textul */
+}
+
+.welcome-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+}
+
+.loading {
+    font-family: 'Orbitron', sans-serif; /* Font sci-fi */
+    font-size: 3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    background: linear-gradient(45deg, 
+        var(--primary) 0%,
+        #4169E1 50%,
+        var(--primary) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 2s linear infinite;
+    text-shadow: 
+        0 0 10px rgba(30, 144, 255, 0.3),
+        0 0 20px rgba(30, 144, 255, 0.2),
+        0 0 30px rgba(30, 144, 255, 0.1);
+    letter-spacing: 4px;
+    position: relative;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg,
+        transparent,
+        var(--primary),
+        transparent
+    );
+    animation: loadingLine 2s infinite;
+}
+
+@keyframes shine {
+    0% { background-position: 200% center; }
+    100% { background-position: -200% center; }
+}
+
+@keyframes loadingLine {
+    0% {
+        width: 0%;
+        opacity: 1;
+    }
+    50% {
+        width: 100%;
+        opacity: 1;
+    }
+    100% {
+        width: 0%;
+        opacity: 1;
+        left: 100%;
+    }
+}
+
+/* Roadmap styling cu particule și floating elements */
+#roadmap {
+    position: relative;
+    overflow: hidden;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.roadmap-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.roadmap-item {
+    background: rgba(11, 20, 38, 0.95);
+    border: 1px solid rgba(30, 144, 255, 0.2);
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 10px;
+    margin: 30px 0;
+    position: relative;
+    width: 80%;
+    animation: floating 3s ease-in-out infinite;
+}
+
+.roadmap-item:nth-child(even) {
+    margin-left: auto;
+    animation-delay: 1.5s;
+}
+
+.phase-number {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 40px;
+    height: 40px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(30, 144, 255, 0.3);
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Particle connection lines */
+.roadmap-item::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, 
+        transparent,
+        rgba(30, 144, 255, 0.5),
+        transparent
+    );
+    animation: pulse 2s infinite;
+}
+
+.roadmap-item:nth-child(odd)::after {
+    right: -30px;
+}
+
+.roadmap-item:nth-child(even)::after {
+    left: -30px;
 }
