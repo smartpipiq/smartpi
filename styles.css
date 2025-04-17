@@ -166,6 +166,7 @@ body::before {
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
     border: 1px solid rgba(255, 215, 0, 0.3);
     color: white;
+    text-decoration: none; 
 }
 
 .btn.secondary {
@@ -173,6 +174,7 @@ body::before {
     box-shadow: 0 0 20px rgba(255, 69, 0, 0.2);
     border: 1px solid rgba(255, 69, 0, 0.3);
     color: white;
+    text-decoration: none; 
 }
 
 .btn:hover {
